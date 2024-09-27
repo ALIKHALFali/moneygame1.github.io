@@ -1,0 +1,119 @@
+<!-- registration.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التسجيل في المسابقات</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: url('https://c4.wallpaperflare.com/wallpaper/367/388/878/pubg-playerunknowns-battlegrounds-2017-games-games-wallpaper-preview.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-control, .form-control-file {
+            border-radius: 5px;
+        }
+
+        .input-group-text {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .message {
+            text-align: center;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">مسابقات ببجي</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link" href="competitions.html">المسابقات</a></li>
+                <li class="nav-item"><a class="nav-link active" href="registration.html">التسجيل</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">حول</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5 form-container">
+        <h1>التسجيل في مسابقات ببجي</h1>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="playerName">اسم اللاعب</label>
+                <input type="text" class="form-control" id="playerName" placeholder="اسم اللاعب" required>
+            </div>
+            <div class="form-group">
+                <label for="playerEmail">البريد الإلكتروني</label>
+                <input type="email" class="form-control" id="playerEmail" placeholder="البريد الإلكتروني" required>
+            </div>
+            <div class="form-group">
+                <label for="gameId">اسم المستخدم في اللعبة</label>
+                <input type="text" class="form-control" id="gameId" placeholder="اسم المستخدم في اللعبة" required>
+            </div>
+            <div class="form-group">
+                <label for="vodafoneCashNumber">رقم فودافون كاش</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <img src="https://e7.pngegg.com/pngimages/509/815/png-clipart-logo-vodafone-new-zealand-vodafone-egypt-vodafone-nz-logo-fly-emirates-logo-4g.png" alt="شعار فودافون" style="width: 25px; height: auto;">
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" id="vodafoneCashNumber" placeholder="رقم فودافون كاش" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="transferImage">رفع صورة التحويل</label>
+                <input type="file" class="form-control-file" id="transferImage" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">تسجيل</button>
+        </form>
+        <div class="message mt-3" id="message"></div>
+    </div>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // منع إرسال النموذج
+
+            // جمع البيانات من النموذج
+            const playerName = document.getElementById('playerName').value;
+
+            // عرض رسالة تأكيد
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = `شكرًا لك، ${playerName}! تم تسجيلك بنجاح.`;
+            
+            // إعادة تعيين النموذج
+            this.reset();
+        });
+    </script>
+</body>
+</html>
